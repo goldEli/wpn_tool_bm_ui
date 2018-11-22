@@ -46,7 +46,7 @@ const MAP_LABEL = {
   spec: "规格",
   price: "价格",
   unit: "单位",
-  url: "图片地址"
+  src: "图片地址"
 };
 
 class Home extends Component {
@@ -154,7 +154,7 @@ class Home extends Component {
     return (
       <WingBlank size="lg">
         {goodsList.map(e => {
-          const { name, url, unit, price, index, id, spec, src, checked } = e;
+          const { name, src, unit, price, index, id, spec, checked } = e;
           const inputInfo = [
             {
               placeholder: "不能超过" + goodsList.length,
@@ -182,15 +182,15 @@ class Home extends Component {
               value: unit
             },
             {
-              placeholder: "请输入" + MAP_LABEL.url,
-              label: MAP_LABEL.url,
+              placeholder: "请输入" + MAP_LABEL.src,
+              label: MAP_LABEL.src,
               value: src
             }
           ];
           return (
             <div key={id} style={{ width: "100%" }}>
               <Card>
-                <Card.Header title={name} thumb={url} />
+                <Card.Header title={name} />
                 <Card.Body>
                   <img src={src} alt="图片地址不正确" style={{width:"100%"}}/>
                   <List.Item
